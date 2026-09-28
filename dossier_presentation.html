@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Dossier de Présentation — Meridian Cyber Defense OS</title>
+  <style>
+    @page {
+      size: A4 portrait;
+      margin: 10mm 12mm;
+    }
+    
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: #1a202c;
+      background: #ffffff;
+      line-height: 1.35;
+      font-size: 9.5pt;
+    }
+
+    .page {
+      page-break-after: always;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 275mm;
+      max-height: 275mm;
+      overflow: hidden;
+    }
+
+    .page:last-child {
+      page-break-after: avoid;
+    }
+
+    .page-content {
+      flex: 1;
+    }
+
+    /* Couleurs OffSec & Thème Cyber */
+    .bg-dark { background: #080a10; color: #f8fafc; }
+    .text-red { color: #ea1e2b; }
+    .text-cyan { color: #00bcd4; }
+    .text-amber { color: #f59e0b; }
+    .text-green { color: #10b981; }
+
+    /* Typographie */
+    .mono { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace; }
+    h1, h2, h3, h4 { font-weight: 800; line-height: 1.15; }
+    
+    .badge {
+      display: inline-block;
+      padding: 2px 7px;
+      border-radius: 4px;
+      font-size: 7.5pt;
+      font-weight: 700;
+      font-family: monospace;
+      text-transform: uppercase;
+    }
+    .badge-red { background: #fee2e2; color: #b91c1c; border: 1px solid #f87171; }
+    .badge-dark-red { background: #3b0d11; color: #ff6b72; border: 1px solid #ea1e2b; }
+    .badge-cyan { background: #e0f2fe; color: #0369a1; border: 1px solid #38bdf8; }
+    .badge-green { background: #dcfce7; color: #15803d; border: 1px solid #4ade80; }
+    .badge-amber { background: #fef3c7; color: #b45309; border: 1px solid #fcd34d; }
+
+    /* Tableaux */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 8px 0;
+      font-size: 8.5pt;
+    }
+    th, td {
+      padding: 5px 8px;
+      text-align: left;
+      border-bottom: 1px solid #e2e8f0;
+    }
+    th {
+      background: #f1f5f9;
+      color: #334155;
+      font-family: monospace;
+      font-weight: 700;
+      font-size: 8pt;
+      text-transform: uppercase;
+    }
+    tr:nth-child(even) td {
+      background: #fafafa;
+    }
+
+    /* Boîtes d'alerte */
+    .callout {
+      padding: 9px 12px;
+      border-radius: 6px;
+      margin: 8px 0;
+      border-left: 4px solid #ea1e2b;
+      background: #fff5f5;
+    }
+    .callout-title {
+      font-weight: 800;
+      color: #b91c1c;
+      font-size: 9pt;
+      margin-bottom: 2px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    /* Cartes en grille */
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+    .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; }
+
+    .card {
+      border: 1px solid #e2e8f0;
+      border-radius: 6px;
+      padding: 8px 10px;
+      background: #ffffff;
+    }
+
+    /* En-tête et pied de page */
+    .header-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid #ea1e2b;
+      padding-bottom: 5px;
+      margin-bottom: 12px;
+      font-size: 8pt;
+      color: #64748b;
+      font-family: monospace;
+    }
+    .footer-bar {
+      border-top: 1px solid #e2e8f0;
+      padding-top: 5px;
+      display: flex;
+      justify-content: space-between;
+      font-size: 7.5pt;
+      color: #94a3b8;
+      font-family: monospace;
+      margin-top: 8px;
+    }
+
+    /* Couverture */
+    .cover {
+      background: linear-gradient(135deg, #06070a 0%, #111422 100%);
+      color: #ffffff;
+      padding: 35px 28px;
+      border-radius: 10px;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border: 1px solid #ea1e2b;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ========================================================================= -->
+  <!-- PAGE 1 : PAGE DE GARDE & RÉSUMÉ EXÉCUTIF                                  -->
+  <!-- ========================================================================= -->
+  <div class="page">
+    <div class="cover">
+      <div>
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px;">
+          <span class="badge badge-dark-red">[ OFFSEC // CYBER DEFENSE LAB ]</span>
+          <span class="mono" style="color: #94a3b8; font-size: 8.5pt;">REF : MERIDIAN-INC-2026-0921</span>
+        </div>
+
+        <div style="margin-bottom: 20px;">
+          <div style="font-size: 11pt; color: #00bcd4; font-family: monospace; font-weight: bold; margin-bottom: 6px;">
+            DOSSIER DE PRÉSENTATION TECHNIQUE & STRATÉGIQUE
+          </div>
+          <h1 style="font-size: 24pt; line-height: 1.1; color: #ffffff; margin-bottom: 10px;">
+            MERIDIAN CYBER DEFENSE OS
+          </h1>
+          <div style="font-size: 13pt; color: #ea1e2b; font-weight: 700; font-family: monospace;">
+            Serious Game d’Incident & Cyber Range d’Entreprise (30 Min)
+          </div>
+          <p style="color: #94a3b8; font-size: 10pt; margin-top: 10px; max-width: 620px; line-height: 1.4;">
+            Simulation réaliste de crise cyber : du hameçonnage ciblé (phishing RH) au rançongiciel LockBit 3.0, avec gouvernance de crise, répliques d'outils d'entreprise réels et démonstration cinématique sans défilement.
+          </p>
+        </div>
+
+        <div style="background: rgba(0,0,0,0.55); border: 1px solid rgba(234,30,43,0.4); border-radius: 8px; padding: 14px; margin-top: 15px;">
+          <div style="color: #f8fafc; font-weight: bold; font-size: 10pt; margin-bottom: 8px; font-family: monospace;">
+            🎯 RÉPONSE AUX EXIGENCES DU CHEF DE DÉPARTEMENT :
+          </div>
+          <ul style="color: #cbd5e1; font-size: 9pt; line-height: 1.5; margin-left: 18px;">
+            <li><b>Remplacement d'une vidéo passive</b> : Plateforme active, vivante, où les participants prennent des décisions en direct.</li>
+            <li><b>Environnement et outils authentiques</b> : Reproduction fidèle de Microsoft Outlook 365, Splunk SIEM, Windows Server 2022, Microsoft Entra ID, Veeam Backup et Hotline DG.</li>
+            <li><b>Mode Démo Auto Cinématique (« Zero-Scroll »)</b> : Démonstration fluide qui alterne explication (« ce qui va se passer ») et exécution réelle sous les yeux du public, sans toucher la souris.</li>
+            <li><b>Doctrine officielle ANSSI</b> : Respect rigoureux de la chaîne d'incident (Alerter, Isoler sans éteindre, Refuser de payer, Contrôler les sauvegardes Air-Gap, Communiquer).</li>
+          </ul>
+        </div>
+      </div>
+
+      <div style="border-top: 1px solid rgba(255,255,255,0.15); padding-top: 15px; display: flex; justify-content: space-between; font-size: 8.5pt; color: #94a3b8; font-family: monospace;">
+        <div>
+          <div><b>PRÉSENTÉ PAR :</b> Équipe Cybersécurité & Déploiement</div>
+          <div><b>DESTINATAIRE :</b> Chef de Département de Cybersécurité</div>
+        </div>
+        <div style="text-align: right;">
+          <div><b>DATE :</b> 21 Septembre 2026</div>
+          <div><b>STATUT :</b> Validé & Prêt pour Animation</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- PAGE 2 : ARCHITECTURE DES 7 OUTILS D'ENTREPRISE SIMULÉS                   -->
+  <!-- ========================================================================= -->
+  <div class="page">
+    <div class="page-content">
+      <div class="header-bar">
+        <span>MERIDIAN CYBER DEFENSE OS // DOSSIER TECHNIQUE</span>
+        <span>SECTION 1 : LES 7 OUTILS SIMULÉS</span>
+      </div>
+
+      <h2 style="font-size: 14pt; margin-bottom: 4px; color: #0f172a;">
+        1. Les 7 Simulateurs d’Infrastructure d’Entreprise
+      </h2>
+      <p style="color: #475569; font-size: 9pt; margin-bottom: 10px;">
+        Plutôt que des maquettes simplistes, la plateforme intègre 7 modules reproduisant fidèlement les véritables consoles utilisées par les collaborateurs, le SOC, les administrateurs et la direction :
+      </p>
+
+      <div class="grid-2" style="margin-bottom: 8px;">
+        <!-- Outil 1 -->
+        <div class="card" style="border-left: 3px solid #0078d4;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+            <b style="color: #0078d4; font-size: 9.5pt;">1. Microsoft Outlook 365</b>
+            <span class="badge badge-cyan">Collaborateur</span>
+          </div>
+          <p style="font-size: 8.5pt; color: #334155; margin-bottom: 4px;">
+            Messagerie d'entreprise avec ruban Office, boîte de réception, et détection de typosquatting (<code class="mono">entreprise-support.com</code>).
+          </p>
+          <ul style="font-size: 8pt; color: #64748b; margin-left: 14px; line-height: 1.35;">
+            <li><b>Inspecteur RFC 822 :</b> Vérification SPF (Fail), DKIM et DMARC.</li>
+            <li><b>Mode Bac à Sable Word :</b> Document avec bandeau jaune et macro VBA.</li>
+            <li><b>Bouton PhishAlarm :</b> Signalement direct au SOC (+2 pts).</li>
+          </ul>
+        </div>
+
+        <!-- Outil 2 -->
+        <div class="card" style="border-left: 3px solid #ea1e2b;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+            <b style="color: #b91c1c; font-size: 9.5pt;">2. Splunk SIEM & SentinelOne EDR</b>
+            <span class="badge badge-red">SOC / Blue Team</span>
+          </div>
+          <p style="font-size: 8.5pt; color: #334155; margin-bottom: 4px;">
+            Console d'analyse de télémétrie SOC avec ingestion en direct (EPS) et filtrage sévérité (P1 Critique, P2 Alerte).
+          </p>
+          <ul style="font-size: 8pt; color: #64748b; margin-left: 14px; line-height: 1.35;">
+            <li><b>Barre de requête SPL :</b> Recherche sur les logs EDR et index d'attaque.</li>
+            <li><b>Arbre des processus :</b> <code class="mono">OUTLOOK ➔ WINWORD ➔ powershell ➔ beacon.exe</code>.</li>
+            <li><b>Actions RTR :</b> Confinement réseau, arrêt de processus PID, dump RAM.</li>
+          </ul>
+        </div>
+
+        <!-- Outil 3 -->
+        <div class="card" style="border-left: 3px solid #059669;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+            <b style="color: #059669; font-size: 9.5pt;">3. Radar Topologie Réseau Animé</b>
+            <span class="badge badge-green">Supervision Réseau</span>
+          </div>
+          <p style="font-size: 8.5pt; color: #334155; margin-bottom: 4px;">
+            Schéma vectoriel SVG dynamique montrant la topologie physique (Postes, Pare-feu, Serveurs, Dépôt Backup).
+          </p>
+          <ul style="font-size: 8pt; color: #64748b; margin-left: 14px; line-height: 1.35;">
+            <li><b>Faisceaux laser de paquets :</b> Visualisation des flux C2 et rebond SMB.</li>
+            <li><b>Coupure instantanée :</b> Les flux s'arrêtent net lors du confinement.</li>
+            <li><b>Fiches d'équipement :</b> Rôles, adresses IP, VLAN et ports ouverts.</li>
+          </ul>
+        </div>
+
+        <!-- Outil 4 -->
+        <div class="card" style="border-left: 3px solid #dc2626;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+            <b style="color: #dc2626; font-size: 9.5pt;">4. Windows Server 2022 & LockBit</b>
+            <span class="badge badge-red">Serveur de Fichiers</span>
+          </div>
+          <p style="font-size: 8.5pt; color: #334155; margin-bottom: 4px;">
+            Explorateur Windows des partages réseau <code class="mono">\\FS-CORP-01\Partages</code> avec fichiers chiffrés en <code class="mono">.locked</code>.
+          </p>
+          <ul style="font-size: 8pt; color: #64748b; margin-left: 14px; line-height: 1.35;">
+            <li><b>Bloc-notes Windows :</b> Affichage de <code class="mono">.README_LOCKED_RESTORE.txt</code>.</li>
+            <li><b>Extorsion 15 BTC :</b> Message pirate avec modal plein écran réaliste.</li>
+            <li><b>Matrice ANSSI :</b> Interdiction collégiale absolue de paiement.</li>
+          </ul>
+        </div>
+
+        <!-- Outil 5 -->
+        <div class="card" style="border-left: 3px solid #4f46e5;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+            <b style="color: #4f46e5; font-size: 9.5pt;">5. Microsoft Entra ID (Azure AD)</b>
+            <span class="badge badge-cyan">Identités & IAM</span>
+          </div>
+          <p style="font-size: 8.5pt; color: #334155; margin-bottom: 4px;">
+            Centre d'administration des identités cloud avec historique des connexions et géolocalisation.
+          </p>
+          <ul style="font-size: 8pt; color: #64748b; margin-left: 14px; line-height: 1.35;">
+            <li><b>Détection MFA Fatigue :</b> 47 notifications push nocturnes à 03h14.</li>
+            <li><b>Révocation des sessions :</b> Déconnexion forcée des tokens usurpés.</li>
+            <li><b>Renforcement FIDO2 :</b> Imposition de clés matérielles.</li>
+          </ul>
+        </div>
+
+        <!-- Outil 6 -->
+        <div class="card" style="border-left: 3px solid #16a34a;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+            <b style="color: #16a34a; font-size: 9.5pt;">6. Veeam Backup v12 (Air-Gap)</b>
+            <span class="badge badge-green">Résilience & Reprise</span>
+          </div>
+          <p style="font-size: 8.5pt; color: #334155; margin-bottom: 4px;">
+            Console de sauvegarde étanche avec dépôt durci Linux et snapshots immuables (WORM).
+          </p>
+          <ul style="font-size: 8pt; color: #64748b; margin-left: 14px; line-height: 1.35;">
+            <li><b>Contrôle d'intégrité SHA256 :</b> Audit des blocs avec barre de chargement.</li>
+            <li><b>Restauration hermétique :</b> Reconstitution en bac à sable quarantaine.</li>
+            <li><b>Garantie de non-réinfection :</b> Empêche de restaurer sur réseau infecté.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Outil 7 (Pleine largeur) -->
+      <div class="card" style="border-left: 3px solid #d97706;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 3px;">
+          <b style="color: #d97706; font-size: 9.5pt;">7. Centre de Crise : Hotline Direction Générale & Fuite WhatsApp</b>
+          <span class="badge badge-amber">Gouvernance & Médias</span>
+        </div>
+        <p style="font-size: 8.5pt; color: #334155; margin-bottom: 4px;">
+          Gestion de la pression humaine et politique : le Directeur Général appelle en urgence, tandis qu'une photo de la rançon fuite sur un groupe WhatsApp et qu'un journaliste financier exige une interview.
+        </p>
+        <div class="grid-2" style="font-size: 8pt; color: #64748b; line-height: 1.3;">
+          <div>📞 <b>Hotline DG avec Forme d'Onde :</b> Dialogue interactif, voix synthétisée, arbitrage entre calme factuel (+2 pts) ou promesses inconsidérées (-2 pts).</div>
+          <div>💬 <b>Gestion Médiatique :</b> Copie du communiqué officiel validé par la cellule de crise et interdiction stricte de répondre en solo à la presse.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bar">
+      <span>CONFIDENTIEL // USAGE PÉDAGOGIQUE & PROFESSIONNEL</span>
+      <span>PAGE 2 / 5</span>
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- PAGE 3 : LE MODE DÉMO AUTO CINÉMATIQUE (« ZERO-SCROLL »)                 -->
+  <!-- ========================================================================= -->
+  <div class="page">
+    <div class="page-content">
+      <div class="header-bar">
+        <span>MERIDIAN CYBER DEFENSE OS // DOSSIER TECHNIQUE</span>
+        <span>SECTION 2 : LE MODE CINÉMATIQUE AUTOMATIQUE</span>
+      </div>
+
+      <h2 style="font-size: 14pt; margin-bottom: 4px; color: #0f172a;">
+        2. Le Mode Démo Auto Cinématique (« Zero-Scroll Auto-Director »)
+      </h2>
+      <p style="color: #475569; font-size: 9pt; margin-bottom: 8px;">
+        Pour captiver une salle ou un comité de direction sans avoir à manipuler la souris ou faire défiler la page (scroll), la plateforme propose un orchestrateur cinématique plein écran :
+      </p>
+
+      <!-- Schéma du Cycle en 2 Temps -->
+      <div style="background: #0f131f; border: 1px solid #ea1e2b; border-radius: 6px; padding: 10px; color: #f8fafc; margin-bottom: 10px;">
+        <div style="color: #ea1e2b; font-weight: 800; font-family: monospace; font-size: 9pt; margin-bottom: 6px;">
+          [ LE CYCLE EN DEUX TEMPS DE CHAQUE ÉTAPE // AUTOMATISÉ À 100% ]
+        </div>
+        <div class="grid-2" style="gap: 10px;">
+          <div style="background: #181d2e; border: 1px solid #334155; border-radius: 4px; padding: 8px;">
+            <div style="color: #f59e0b; font-weight: bold; font-size: 8.5pt; font-family: monospace; margin-bottom: 2px;">
+              🎬 PHASE 1 : BRIEFING (« CE QUI VA SE PASSER »)
+            </div>
+            <p style="font-size: 8pt; color: #cbd5e1; line-height: 1.35;">
+              Fiche explicative plein écran avec l'étape, le TTP MITRE, la jauge de gravité de la menace (0 à 98%), et le <b>Triple Regard Cyber</b> (Salarié / Hacker / SOC). Compte à rebours automatique.
+            </p>
+          </div>
+          <div style="background: #181d2e; border: 1px solid #334155; border-radius: 4px; padding: 8px;">
+            <div style="color: #10b981; font-weight: bold; font-size: 8.5pt; font-family: monospace; margin-bottom: 2px;">
+              ⚡ PHASE 2 : EXÉCUTION RÉELLE EN DIRECT
+            </div>
+            <p style="font-size: 8pt; color: #cbd5e1; line-height: 1.35;">
+              L'écran bascule automatiquement et affiche le véritable outil en plein écran sans défilement (Outlook, Splunk, Windows Server, etc.) et exécute l'action clé en direct avec effets sonores Web Audio.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Le Triple Regard Cyber -->
+      <h3 style="font-size: 11pt; margin-bottom: 6px; color: #0f172a;">
+        Le « Triple Regard Cyber » : Vulgarisation Instantanée pour Tous les Publics
+      </h3>
+
+      <div class="grid-3" style="margin-bottom: 10px;">
+        <div class="card" style="background: #f8fafc; border-top: 3px solid #0284c7; padding: 6px 8px;">
+          <b style="color: #0369a1; font-size: 9pt;">👤 1. Vue Salarié</b>
+          <div style="font-size: 7.5pt; color: #64748b; margin-bottom: 2px;">Karim (Compta)</div>
+          <p style="font-size: 8pt; color: #334155; line-height: 1.3;">
+            Ce que voit l'utilisateur : courriel RH pressant, clic sur « Activer le contenu », puis ralentissement inexpliqué du poste.
+          </p>
+        </div>
+
+        <div class="card" style="background: #fff5f5; border-top: 3px solid #ea1e2b; padding: 6px 8px;">
+          <b style="color: #b91c1c; font-size: 9pt;">🥷 2. Sous le Capot</b>
+          <div style="font-size: 7.5pt; color: #64748b; margin-bottom: 2px;">C2 185.22.14.89 (Bulgarie)</div>
+          <p style="font-size: 8pt; color: #334155; line-height: 1.3;">
+            Ce qui se passe : la macro lance un PowerShell invisible, installe une balise C2, énumère le réseau et chiffre en AES-256.
+          </p>
+        </div>
+
+        <div class="card" style="background: #f0fdf4; border-top: 3px solid #16a34a; padding: 6px 8px;">
+          <b style="color: #15803d; font-size: 9pt;">🛡️ 3. Vue SOC / EDR</b>
+          <div style="font-size: 7.5pt; color: #64748b; margin-bottom: 2px;">Sara (Analyste L2)</div>
+          <p style="font-size: 8pt; color: #334155; line-height: 1.3;">
+            Ce que détectent les sondes : corrélation SIEM, alarme prioritaire sur le processus suspect et isolement réseau immédiat.
+          </p>
+        </div>
+      </div>
+
+      <!-- Tableau récapitulatif des 7 étapes (Compact) -->
+      <h3 style="font-size: 10pt; margin-bottom: 4px; color: #0f172a;">
+        Chronologie des 7 Étapes de la Démonstration Automatisée
+      </h3>
+      <table style="margin: 4px 0;">
+        <thead>
+          <tr>
+            <th style="padding: 4px 6px;">Étape</th>
+            <th style="padding: 4px 6px;">Heure</th>
+            <th style="padding: 4px 6px;">Titre du Scénario</th>
+            <th style="padding: 4px 6px;">Outil d'Exécution Réel</th>
+            <th style="padding: 4px 6px;">TTP MITRE</th>
+            <th style="padding: 4px 6px;">Gravité</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="padding: 3px 6px;"><b>STG-01</b></td>
+            <td class="mono" style="padding: 3px 6px;">09h15</td>
+            <td style="padding: 3px 6px;">Hameçonnage Ciblé (Phishing RH) & Macro</td>
+            <td style="padding: 3px 6px;">Microsoft Outlook 365 & Word</td>
+            <td class="mono" style="padding: 3px 6px;">T1566.001</td>
+            <td style="padding: 3px 6px;"><span class="badge badge-cyan">25 %</span></td>
+          </tr>
+          <tr>
+            <td style="padding: 3px 6px;"><b>STG-02</b></td>
+            <td class="mono" style="padding: 3px 6px;">09h20</td>
+            <td style="padding: 3px 6px;">Alerte EDR, Arbre de Processus & Canal C2</td>
+            <td style="padding: 3px 6px;">Splunk SIEM Enterprise & EDR</td>
+            <td class="mono" style="padding: 3px 6px;">T1059.001</td>
+            <td style="padding: 3px 6px;"><span class="badge badge-amber">55 %</span></td>
+          </tr>
+          <tr>
+            <td style="padding: 3px 6px;"><b>STG-03</b></td>
+            <td class="mono" style="padding: 3px 6px;">09h25</td>
+            <td style="padding: 3px 6px;">Propagation Latérale SMB vers Serveurs</td>
+            <td style="padding: 3px 6px;">Radar Réseau (Flux Laser SVG)</td>
+            <td class="mono" style="padding: 3px 6px;">T1021.002</td>
+            <td style="padding: 3px 6px;"><span class="badge badge-amber">75 %</span></td>
+          </tr>
+          <tr>
+            <td style="padding: 3px 6px;"><b>STG-04</b></td>
+            <td class="mono" style="padding: 3px 6px;">09h40</td>
+            <td style="padding: 3px 6px;">Chiffrement Massif LockBit & Note de Rançon</td>
+            <td style="padding: 3px 6px;">Windows Server 2022 (.locked)</td>
+            <td class="mono" style="padding: 3px 6px;">T1486</td>
+            <td style="padding: 3px 6px;"><span class="badge badge-red">98 %</span></td>
+          </tr>
+          <tr>
+            <td style="padding: 3px 6px;"><b>STG-05</b></td>
+            <td class="mono" style="padding: 3px 6px;">09h45</td>
+            <td style="padding: 3px 6px;">Hotline DG, Arbitrage Crise & Fuite WhatsApp</td>
+            <td style="padding: 3px 6px;">Hotline Téléphonique & WhatsApp</td>
+            <td class="mono" style="padding: 3px 6px;">ISO 27035</td>
+            <td style="padding: 3px 6px;"><span class="badge badge-red">80 %</span></td>
+          </tr>
+          <tr>
+            <td style="padding: 3px 6px;"><b>STG-06</b></td>
+            <td class="mono" style="padding: 3px 6px;">09h55</td>
+            <td style="padding: 3px 6px;">Sauvegardes Immuables WORM & Reprise</td>
+            <td style="padding: 3px 6px;">Veeam Backup & Replication v12</td>
+            <td class="mono" style="padding: 3px 6px;">Air-Gap</td>
+            <td style="padding: 3px 6px;"><span class="badge badge-green">30 %</span></td>
+          </tr>
+          <tr>
+            <td style="padding: 3px 6px;"><b>STG-07</b></td>
+            <td class="mono" style="padding: 3px 6px;">10h00</td>
+            <td style="padding: 3px 6px;">Maîtrise de l’Incident & Débriefing 5 Réflexes</td>
+            <td style="padding: 3px 6px;">Cockpit Débriefing & Bilan (+12 pts)</td>
+            <td class="mono" style="padding: 3px 6px;">RETEX</td>
+            <td style="padding: 3px 6px;"><span class="badge badge-green">10 %</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="footer-bar">
+      <span>CONFIDENTIEL // USAGE PÉDAGOGIQUE & PROFESSIONNEL</span>
+      <span>PAGE 3 / 5</span>
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- PAGE 4 : DÉROULÉ PÉDAGOGIQUE EN 30 MINUTES & DOCTRINE ANSSI               -->
+  <!-- ========================================================================= -->
+  <div class="page">
+    <div class="page-content">
+      <div class="header-bar">
+        <span>MERIDIAN CYBER DEFENSE OS // DOSSIER TECHNIQUE</span>
+        <span>SECTION 3 : DÉROULÉ 30 MIN & DOCTRINE ANSSI</span>
+      </div>
+
+      <h2 style="font-size: 14pt; margin-bottom: 4px; color: #0f172a;">
+        3. Déroulé de l'Exercice (30 Minutes Chrono)
+      </h2>
+      <p style="color: #475569; font-size: 9pt; margin-bottom: 8px;">
+        L'exercice est structuré pour tenir exactement en 30 minutes, selon le minutage pédagogique attendu par le chef de département :
+      </p>
+
+      <!-- Les 6 blocs de temps -->
+      <div style="display: flex; flex-direction: column; gap: 5px; margin-bottom: 8px;">
+        <div class="card" style="padding: 6px 10px; border-left: 3px solid #64748b;">
+          <div style="display: flex; justify-content: space-between;">
+            <b style="font-size: 8.5pt; color: #1e293b;">09h00 · Cadrage & Répartition des Équipes (3 minutes)</b>
+            <span class="mono" style="font-size: 7.5pt; color: #64748b;">Introduction</span>
+          </div>
+          <p style="font-size: 8pt; color: #475569; margin-top: 1px;">
+            Explication des règles, objectifs pédagogiques, présentation de l'entreprise fictive Meridian et constitution des équipes d'apprenants (Blue Team, Direction, Métier).
+          </p>
+        </div>
+
+        <div class="card" style="padding: 6px 10px; border-left: 3px solid #00bcd4;">
+          <div style="display: flex; justify-content: space-between;">
+            <b style="font-size: 8.5pt; color: #0369a1;">09h15 · Scénario 1 : Le Hameçonnage (5 minutes)</b>
+            <span class="badge badge-cyan">Réflexes 1 & 2</span>
+          </div>
+          <p style="font-size: 8pt; color: #475569; margin-top: 1px;">
+            <b>Situation :</b> Karim clique sur la pièce jointe. Le PC ralentit. <b>Action :</b> Alerter immédiatement le support/SOC et isoler le poste <u>sans l’éteindre</u> afin de préserver la RAM.
+          </p>
+        </div>
+
+        <div class="card" style="padding: 6px 10px; border-left: 3px solid #f59e0b;">
+          <div style="display: flex; justify-content: space-between;">
+            <b style="font-size: 8.5pt; color: #b45309;">09h25 · Scénario 2 : L'Alerte SOC & Propagation (5 minutes)</b>
+            <span class="badge badge-amber">Réflexe 3</span>
+          </div>
+          <p style="font-size: 8pt; color: #475569; margin-top: 1px;">
+            <b>Situation :</b> L'EDR sonne. Connexion suspecte vers l'IP bulgare et rebonds SMB. <b>Action :</b> Isolement EDR des 3 postes compromis, blocage de l'IP C2 au pare-feu et qualification d'étendue.
+          </p>
+        </div>
+
+        <div class="card" style="padding: 6px 10px; border-left: 3px solid #ea1e2b;">
+          <div style="display: flex; justify-content: space-between;">
+            <b style="font-size: 8.5pt; color: #b91c1c;">09h40 · Scénario 3 : Le Chiffrement Rançongiciel (5 minutes)</b>
+            <span class="badge badge-red">Réflexe 4</span>
+          </div>
+          <p style="font-size: 8pt; color: #475569; margin-top: 1px;">
+            <b>Situation :</b> 15 BTC exigés par LockBit 3.0. Tous les fichiers métiers sont bloqués. <b>Action :</b> Cellule de crise, <b>refus formel de payer</b> (doctrine ANSSI) et audit des sauvegardes Air-Gap.
+          </p>
+        </div>
+
+        <div class="card" style="padding: 6px 10px; border-left: 3px solid #8b5cf6;">
+          <div style="display: flex; justify-content: space-between;">
+            <b style="font-size: 8.5pt; color: #6d28d9;">09h50 · Scénario 4 : La Crise & Communication (4 minutes)</b>
+            <span class="badge badge-cyan">Réflexe 5</span>
+          </div>
+          <p style="font-size: 8pt; color: #475569; margin-top: 1px;">
+            <b>Situation :</b> Fuite sur WhatsApp et appel journaliste. <b>Action :</b> Diffusion exclusive du communiqué officiel validé par la Direction et le Juridique.
+          </p>
+        </div>
+
+        <div class="card" style="padding: 6px 10px; border-left: 3px solid #10b981;">
+          <div style="display: flex; justify-content: space-between;">
+            <b style="font-size: 8.5pt; color: #15803d;">10h00 · Débriefing, Retex & Ancrage des 5 Réflexes (8 minutes)</b>
+            <span class="badge badge-green">Synthèse</span>
+          </div>
+          <p style="font-size: 8pt; color: #475569; margin-top: 1px;">
+            Analyse des scores obtenus, débriefing des erreurs évitées, remise de l'attestation et mémorisation des 5 réflexes vitaux.
+          </p>
+        </div>
+      </div>
+
+      <!-- Les 5 Réflexes Fondamentaux ANSSI -->
+      <div style="background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 6px; padding: 8px 10px;">
+        <b style="color: #0f172a; font-size: 8.5pt; font-family: monospace; display: block; margin-bottom: 4px;">
+          🛡️ LES 5 RÉFLEXES DE CYBERDÉFENSE ANCRÉS LORS DE LA FORMATION :
+        </b>
+        <div class="grid-2" style="font-size: 8pt; color: #334155; gap: 4px 8px;">
+          <div><b>1. DÉTECTER :</b> Savoir identifier les signaux faibles (typosquatting, macro, lenteur).</div>
+          <div><b>2. ALERTER :</b> Prévenir sans délai le support et le SOC ; ne jamais cacher l'erreur.</div>
+          <div><b>3. ISOLER :</b> Débrancher le câble réseau / Wi-Fi, <u>mais ne jamais éteindre le PC</u>.</div>
+          <div><b>4. DÉCIDER :</b> Gouvernance collégiale et interdiction stricte de payer les criminels.</div>
+          <div style="grid-column: span 2;"><b>5. COMMUNIQUER :</b> Un seul porte-parole officiel ; appliquer les notifications CNIL / ANSSI.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bar">
+      <span>CONFIDENTIEL // USAGE PÉDAGOGIQUE & PROFESSIONNEL</span>
+      <span>PAGE 4 / 5</span>
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- PAGE 5 : GUIDE DE PRÉSENTATION ORALE POUR DEMAIN                          -->
+  <!-- ========================================================================= -->
+  <div class="page">
+    <div class="page-content">
+      <div class="header-bar">
+        <span>MERIDIAN CYBER DEFENSE OS // DOSSIER TECHNIQUE</span>
+        <span>SECTION 4 : GUIDE DU PRÉSENTATEUR (PITCH CHEF)</span>
+      </div>
+
+      <h2 style="font-size: 14pt; margin-bottom: 4px; color: #0f172a;">
+        4. Comment Présenter ce Projet à Votre Chef Demain
+      </h2>
+      <p style="color: #475569; font-size: 9pt; margin-bottom: 8px;">
+        Voici le script et le plan d'action recommandé pour faire une démonstration de 5 minutes qui convaincra immédiatement votre chef de département :
+      </p>
+
+      <!-- Pitch 1 : L'accroche -->
+      <div class="callout" style="border-left-color: #ea1e2b; margin-bottom: 8px;">
+        <div class="callout-title" style="color: #b91c1c;">
+          <span>Étape 1 · L'Accroche (30 secondes)</span>
+        </div>
+        <p style="font-size: 8.5pt; color: #334155; font-style: italic;">
+          « Monsieur le Directeur, plutôt que de faire une énième vidéo de sensibilisation que les gens regardent d'un œil distrait, j'ai développé une véritable plateforme d'entraînement immersive : <b>Meridian Cyber Defense OS</b>. Elle simule exactement ce que nos collaborateurs et nos équipes IT vivent lors d'une attaque réelle, sur nos vrais outils. Je vous montre en 3 minutes comment ça fonctionne. »
+        </p>
+      </div>
+
+      <!-- Pitch 2 : Le clic magique -->
+      <div class="callout" style="border-left-color: #00bcd4; background: #f0fdfa; margin-bottom: 8px;">
+        <div class="callout-title" style="color: #0d9488;">
+          <span>Étape 2 · La Démonstration du Mode Démo Auto (2 minutes)</span>
+        </div>
+        <p style="font-size: 8.5pt; color: #334155;">
+          1. Ouvrez <code class="mono">http://localhost:5173/simulation</code>.<br/>
+          2. Cliquez sur le bouton rouge : <b>[ DÉMO AUTO (SANS SCROLL) ➔ ]</b>.<br/>
+          3. Dites à votre chef : <i>« Regardez, vous n'avez même pas besoin de toucher la souris. La plateforme explique d'abord à la salle ce qui va se passer avec le Triple Regard (Salarié, Hacker, SOC), puis bascule automatiquement dans l'outil réel pour montrer l'exécution en direct. »</i><br/>
+          4. Laissez défiler l'étape Outlook, puis Splunk, puis le radar réseau, et Windows Server avec le rançongiciel.
+        </p>
+      </div>
+
+      <!-- Pitch 3 : Les arguments clés -->
+      <div class="card" style="margin-bottom: 8px; background: #fafafa;">
+        <b style="font-size: 9pt; color: #0f172a; display: block; margin-bottom: 4px;">
+          💡 LES 4 ARGUMENTS D'AUTORITÉ À METTRE EN AVANT :
+        </b>
+        <div class="grid-2" style="font-size: 8pt; color: #475569; gap: 6px 10px;">
+          <div><b>1. Sécurité & Souveraineté :</b> L'application tourne 100% en local, sans dépendance externe, sans fuite de données.</div>
+          <div><b>2. Barème ANSSI Validé :</b> Attribue des points positifs pour les bons réflexes (+2, +3) et sanctionne les erreurs (-2, -3).</div>
+          <div><b>3. Trois Espaces Complémentaires :</b> Espace Entreprise (outils), Projection Salle (16:9 avec votes), et Cockpit Formateur.</div>
+          <div><b>4. Fiche A4 Imprimable :</b> Exportable immédiatement en JSON/CSV et fiches de synthèse pour les participants.</div>
+        </div>
+      </div>
+
+      <!-- Pitch 4 : La conclusion -->
+      <div class="callout" style="border-left-color: #10b981; background: #f0fdf4; margin-bottom: 8px;">
+        <div class="callout-title" style="color: #15803d;">
+          <span>Étape 3 · La Conclusion Gagnante</span>
+        </div>
+        <p style="font-size: 8.5pt; color: #334155; font-style: italic;">
+          « Cette solution est prête immédiatement. Elle valorise notre département de cybersécurité en proposant un standard de niveau international inspiré d'OffSec, tout en étant parfaitement accessible à l'ensemble des métiers de l'entreprise. »
+        </p>
+      </div>
+
+      <div style="background: #080a10; color: #f8fafc; border-radius: 6px; padding: 8px 12px; display: flex; justify-content: space-between; align-items: center; font-size: 8pt; font-family: monospace;">
+        <span class="text-red"><b>COMMANDE DE DÉMARRAGE RAPIDE :</b></span>
+        <span class="text-cyan">npm run dev ➔ http://localhost:5173/simulation</span>
+      </div>
+    </div>
+
+    <div class="footer-bar">
+      <span>CONFIDENTIEL // USAGE PÉDAGOGIQUE & PROFESSIONNEL</span>
+      <span>PAGE 5 / 5</span>
+    </div>
+  </div>
+
+</body>
+</html>

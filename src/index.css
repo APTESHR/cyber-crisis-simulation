@@ -1,0 +1,379 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ========================================================================= */
+/* Design System: Wiz.io High-Quality Technical Style Specification         */
+/* Pure White, Dark Slate, Electric Blue (#0254EC), Pastel Pink & Lavender   */
+/* ========================================================================= */
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #ffffff;
+  color: #393f49;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: #ffffff;
+  color: #393f49;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Display headlines with strong size contrast and medium-bold scale */
+.display-headline {
+  font-family: 'Inter', system-ui, sans-serif;
+  letter-spacing: -0.02em;
+  color: #393f49;
+  font-weight: 700;
+}
+
+.headline-electric {
+  color: #0254ec;
+}
+
+.headline-pink {
+  color: #be185d;
+}
+
+/* Tabular numbers and precision telemetry fonts */
+.mono {
+  font-family: 'JetBrains Mono', Menlo, Courier, monospace;
+  font-feature-settings: 'tnum';
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.015em;
+}
+
+.tabular-nums {
+  font-feature-settings: 'tnum';
+  font-variant-numeric: tabular-nums;
+}
+
+/* Telemetry & Metadata Labels */
+.telemetry-label {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  color: #717783;
+}
+
+/* Clean Wiz Lavender Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f5f0ff;
+}
+::-webkit-scrollbar-thumb {
+  background: #c7dbfe;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #93c5fd;
+}
+
+/* Wiz Elevated Cards (Soft 14-16px radius, Light Cool Blue-Gray border) */
+.studio-card,
+.tactile-panel,
+.lab-panel,
+.cyber-card,
+.pro-card,
+.zig-card,
+.wiz-card {
+  background: #ffffff;
+  border: 1px solid #e0e7ff;
+  border-radius: 16px;
+  box-shadow: 0 1px 3px rgba(2, 84, 236, 0.04), 0 4px 12px -2px rgba(2, 84, 236, 0.02);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.studio-card:hover,
+.tactile-panel:hover,
+.lab-panel:hover,
+.cyber-card:hover,
+.pro-card:hover,
+.zig-card:hover,
+.wiz-card:hover {
+  border-color: #c7dbfe;
+  box-shadow: 0 12px 32px -4px rgba(2, 84, 236, 0.08), 0 4px 12px -2px rgba(2, 84, 236, 0.03);
+}
+
+.studio-card-threat,
+.tactile-panel-threat {
+  background: #ffffff;
+  border: 1px solid #fbcfe8;
+  border-left: 3px solid #be185d;
+  border-radius: 16px;
+  box-shadow: 0 1px 3px rgba(190, 24, 93, 0.04);
+}
+
+.studio-card-iris,
+.zig-card-emerald {
+  background: #ffffff;
+  border: 1px solid #c7dbfe;
+  border-left: 3px solid #0254ec;
+  border-radius: 16px;
+  box-shadow: 0 1px 3px rgba(2, 84, 236, 0.04);
+}
+
+/* Electric Glow Active State */
+.iris-glow-border,
+.emerald-glow-border,
+.electric-glow-border {
+  border: 2px solid #0254ec !important;
+  box-shadow: 0 0 0 1px #0254ec, 0 8px 24px -4px rgba(2, 84, 236, 0.25) !important;
+}
+
+/* Pill Badges: Soft tinted surfaces, Fully Rounded */
+.studio-pill,
+.tactical-badge,
+.cyber-badge,
+.pro-badge,
+.zig-pill,
+.wiz-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  background: #f5f0ff;
+  color: #393f49;
+  border: 1px solid #e0e7ff;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.2;
+}
+
+.studio-pill-iris,
+.zig-pill-emerald {
+  background: #f0f5ff;
+  color: #0254ec;
+  border-color: #c7dbfe;
+}
+
+.studio-pill-crimson,
+.tactical-badge-red,
+.cyber-badge-red,
+.zig-pill-brick {
+  background: #fdf2f8;
+  color: #be185d;
+  border-color: #fbcfe8;
+}
+
+.studio-pill-amber,
+.tactical-badge-amber,
+.cyber-badge-amber {
+  background: #fffbeb;
+  color: #d97706;
+  border-color: #fde68a;
+}
+
+.studio-pill-cyan,
+.tactical-badge-cobalt,
+.cyber-badge-blue {
+  background: #f0f5ff;
+  color: #0254ec;
+  border-color: #c7dbfe;
+}
+
+.studio-pill-green,
+.tactical-badge-green,
+.cyber-badge-emerald {
+  background: #ecfdf5;
+  color: #059669;
+  border-color: #a7f3d0;
+}
+
+/* Primary Action CTA: Bright Electric Blue (#0254EC), Fully Rounded Pill */
+.studio-btn-primary,
+.tactical-btn,
+.cyber-btn-primary,
+.pro-btn-primary,
+.zig-btn-primary,
+.wiz-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  padding: 0.6rem 1.25rem;
+  border-radius: 9999px;
+  background: #0254ec;
+  color: #ffffff;
+  border: 1px solid #0254ec;
+  box-shadow: 0 2px 8px rgba(2, 84, 236, 0.25);
+  transition: all 0.15s ease-in-out;
+  cursor: pointer;
+  user-select: none;
+}
+
+.studio-btn-primary:hover,
+.tactical-btn:hover,
+.cyber-btn-primary:hover,
+.pro-btn-primary:hover,
+.zig-btn-primary:hover,
+.wiz-btn-primary:hover {
+  background: #0043c7;
+  border-color: #0043c7;
+  box-shadow: 0 4px 14px rgba(2, 84, 236, 0.35);
+  transform: translateY(-1px);
+}
+
+.studio-btn-primary:active,
+.tactical-btn:active,
+.cyber-btn-primary:active,
+.pro-btn-primary:active,
+.zig-btn-primary:active,
+.wiz-btn-primary:active {
+  transform: translateY(1px);
+}
+
+.studio-btn-primary:focus-visible,
+.tactical-btn:focus-visible,
+.cyber-btn-primary:focus-visible,
+.pro-btn-primary:focus-visible,
+.zig-btn-primary:focus-visible,
+.wiz-btn-primary:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px #ffffff, 0 0 0 4px #0254ec;
+}
+
+/* Dark Slate Button */
+.zig-btn-charcoal {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  padding: 0.6rem 1.25rem;
+  border-radius: 9999px;
+  background: #393f49;
+  color: #ffffff;
+  border: 1px solid #393f49;
+  box-shadow: 0 2px 6px rgba(57, 63, 73, 0.12);
+  transition: all 0.15s ease-in-out;
+  cursor: pointer;
+  user-select: none;
+}
+.zig-btn-charcoal:hover {
+  background: #1f2328;
+  border-color: #1f2328;
+  transform: translateY(-1px);
+}
+
+/* Secondary / Outlined Buttons */
+.studio-btn-secondary,
+.tactical-btn-secondary,
+.cyber-btn-secondary,
+.pro-btn-secondary,
+.zig-btn-secondary,
+.wiz-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  padding: 0.6rem 1.25rem;
+  border-radius: 9999px;
+  background: #ffffff;
+  color: #393f49;
+  border: 1px solid #e0e7ff;
+  box-shadow: 0 1px 3px rgba(2, 84, 236, 0.04);
+  transition: all 0.15s ease-in-out;
+  cursor: pointer;
+  user-select: none;
+}
+
+.studio-btn-secondary:hover,
+.tactical-btn-secondary:hover,
+.cyber-btn-secondary:hover,
+.pro-btn-secondary:hover,
+.zig-btn-secondary:hover,
+.wiz-btn-secondary:hover {
+  background: #f5f0ff;
+  border-color: #c7dbfe;
+  color: #0254ec;
+}
+
+.studio-btn-secondary:active,
+.tactical-btn-secondary:active,
+.cyber-btn-secondary:active,
+.pro-btn-secondary:active,
+.zig-btn-secondary:active,
+.wiz-btn-secondary:active {
+  transform: translateY(1px);
+}
+
+/* Electric Brand Button */
+.studio-btn-iris,
+.zig-btn-emerald {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 0.6rem 1.25rem;
+  border-radius: 9999px;
+  background: #0254ec;
+  color: #ffffff;
+  border: 1px solid #0254ec;
+  box-shadow: 0 2px 8px rgba(2, 84, 236, 0.25);
+  transition: all 0.15s ease-in-out;
+  cursor: pointer;
+}
+.studio-btn-iris:hover,
+.zig-btn-emerald:hover {
+  background: #0043c7;
+  border-color: #0043c7;
+  transform: translateY(-1px);
+}
+
+/* Pulse indicator animation for status dots */
+@keyframes status-pulse-crisp {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.3); opacity: 0.7; }
+}
+
+.status-dot-pulse {
+  animation: status-pulse-crisp 1.6s infinite ease-in-out;
+}
+
+/* Fullscreen Cinema Mode - Absolutely hide all headers & navbars */
+body.fullscreen-cinema-active {
+  overflow: hidden !important;
+}
+
+body.fullscreen-cinema-active header {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+/* Print Clean Optimization */
+@media print {
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+}
+

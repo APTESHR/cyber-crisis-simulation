@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  cyber-crisis-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: cyber-crisis-simulation
+    restart: unless-stopped
+    ports:
+      # Port 5173 for direct compatibility with Wi-Fi QR code
+      - "5173:5173"
+      # Port 80 for standard HTTP web access
+      - "80:5173"
+    environment:
+      - NODE_ENV=production
